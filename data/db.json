@@ -1,0 +1,26 @@
+{
+  "categories": [
+    {
+      "name": "Chocolet",
+      "display_name": "Chocolet",
+      "description": "Chocolet",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "category": "Chocolet",
+      "name": "Galaxy",
+      "display_name": "Galaxy Dark",
+      "description": "Galaxy dark",
+      "id": 1
+    },
+    {
+      "category": "Chocolet",
+      "name": "Twix",
+      "display_name": "Twix light",
+      "description": "Twix light",
+      "id": 2
+    }
+  ]
+}
