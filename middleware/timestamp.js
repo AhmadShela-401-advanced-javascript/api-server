@@ -11,7 +11,6 @@
   let reqTime1 = new Date().getMinutes();
   let reqTime2 = new Date().getSeconds();
   req.requestTime = `${reqDate}:${reqTime}:${reqTime1}:${reqTime2}`;
-  console.log('>>>>>>>>',req.requestTime);
   next();
  }
 
