@@ -6,30 +6,54 @@ const mockRequest = supergoose(server);
 
 describe('API', ()=> {
     it('can post() a category item', async ()=> {
-        const categoryOBJ =     {
-            "name": "test",
-            "display_name": "test",
-            "description": "test",
-            "id": 1
-          };
-        const data = await mockRequest.post('/api/v1/food').send(foodObj);
-        console.log("data.body : ",data.body);
-        const record = data.body;
-        Object.keys(foodObj).forEach(key=> {
-            expect(record[key]).toEqual(foodObj[key]);
-        });
+        let data = await mockRequest.post('/api/v1/categories')
+        expect(data.status).toBe(200)
     });
 
-    it('can get() a food item', async ()=> {
-        const foodObj = {name: 'apple', calories : 70, type: 'FRUIT'};
-        const data = await mockRequest.post('/api/v1/food').send(foodObj);
-        console.log("data.body : ",data.body);
-        const record = data.body;
-        const foodItemResponse = await mockRequest.get(`/api/v1/food/${record._id}`);
-        const foodItem = foodItemResponse.body[0];
-        Object.keys(foodObj).forEach(key=> {
-            expect(foodItem[key]).toEqual(foodObj[key]);
-        });
+    it('can get() a category item', async ()=> {
+        let data = await mockRequest.get('/api/v1/categories')
+        expect(data.status).toBe(200)
+    });
+    it('cat update() a category item',async()=>{
+        return mockRequest.put('/api/v1/categories/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    it('cat delete() a category item',async()=>{
+        return mockRequest.delete('/api/v1/categories/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    /****************************************** */
+    it('can post() a products item', async ()=> {
+        let data = await mockRequest.post('/api/v1/products')
+        expect(data.status).toBe(200)
+    });
+
+    it('can get() a products item', async ()=> {
+        let data = await mockRequest.get('/api/v1/products')
+        expect(data.status).toBe(200)
+    });
+    it('cat update() a products item',async()=>{
+        return mockRequest.put('/api/v1/products/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    it('cat delete() a products item',async()=>{
+        return mockRequest.delete('/api/v1/products/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
 
     });
 });

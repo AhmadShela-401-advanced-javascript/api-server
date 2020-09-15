@@ -26,3 +26,7 @@ products
 
 ## Swagger Documentation
 https://app.swaggerhub.com/apis/ahmad2020/default-title/0.1
+
+## UML
+
+![UML](assets/lab08UML.jpg)
