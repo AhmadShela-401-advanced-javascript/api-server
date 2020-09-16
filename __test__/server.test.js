@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 const { server } = require('../lib/server');
 
@@ -16,6 +17,14 @@ describe('API', ()=> {
     });
     it('cat update() a category item',async()=>{
         return mockRequest.put('/api/v1/categories/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    it('cat patch() a category item',async()=>{
+        return mockRequest.patch('/api/v1/categories/:id').then(data =>{
             expect(data.status).toBe(200)
         }).catch(error =>{
             console.log(error);
@@ -42,6 +51,14 @@ describe('API', ()=> {
     });
     it('cat update() a products item',async()=>{
         return mockRequest.put('/api/v1/products/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    it('cat update() a products item',async()=>{
+        return mockRequest.patch('/api/v1/products/:id').then(data =>{
             expect(data.status).toBe(200)
         }).catch(error =>{
             console.log(error);
