@@ -23,6 +23,14 @@ describe('API', ()=> {
         })
 
     });
+    it('cat patch() a category item',async()=>{
+        return mockRequest.patch('/api/v1/categories/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
     it('cat delete() a category item',async()=>{
         return mockRequest.delete('/api/v1/categories/:id').then(data =>{
             expect(data.status).toBe(200)
@@ -43,6 +51,14 @@ describe('API', ()=> {
     });
     it('cat update() a products item',async()=>{
         return mockRequest.put('/api/v1/products/:id').then(data =>{
+            expect(data.status).toBe(200)
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    });
+    it('cat update() a products item',async()=>{
+        return mockRequest.patch('/api/v1/products/:id').then(data =>{
             expect(data.status).toBe(200)
         }).catch(error =>{
             console.log(error);

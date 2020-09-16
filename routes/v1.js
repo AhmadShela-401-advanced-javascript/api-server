@@ -6,9 +6,11 @@ const router = express.Router();
 const categories = require('../module/categories/categories-collection');
 const products = require('../module/products/products-collection.js');
 
+router.get('/api/v1/:model/:id', handleAllGetRequists);
 router.get('/api/v1/:model', handleAllGetRequists);
 router.post('/api/v1/:model', handleAllPostRequists);
 router.put('/api/v1/:model/:id', handleAllPutRequists);
+router.patch('/api/v1/:model/:id', handleAllPatchRequists);
 router.delete('/api/v1/:model/:id', handleAllDeleteRequists);
 
 router.param('model', getModel);
@@ -31,7 +33,7 @@ function getModel(req, res, next) {
 }
 
 function handleAllGetRequists(req, res, next) {
-    req.model.get().then(result => {
+    req.model.get(req.params.id).then(result => {
         res.status(200).json(result)
     }).catch(next)
 
@@ -45,6 +47,13 @@ function handleAllPostRequists(req, res, next) {
 }
 
 function handleAllPutRequists(req, res, next) {
+    req.model.update(req.params.id,req.body).then(result => {
+        res.status(200).json(result)
+    }).catch(next)
+
+}
+
+function handleAllPatchRequists(req, res, next) {
     req.model.update(req.params.id,req.body).then(result => {
         res.status(200).json(result)
     }).catch(next)
