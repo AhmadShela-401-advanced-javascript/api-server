@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'sue strict';
 const mongoose = require('mongoose');
 
